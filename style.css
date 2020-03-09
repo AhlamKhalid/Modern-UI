@@ -1,9 +1,11 @@
+/* general */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* full height */
 html,
 body {
   height: 100%;
@@ -11,28 +13,34 @@ body {
 
 body {
   background-image: url("fashion.jpg");
+  /* control image size - zooming */
   background-size: 830px;
   background-position: center;
   background-repeat: no-repeat;
   font-family: "Open Sans", sans-serif;
 }
+/* orange overlay over the background image */
 .overlay {
   width: 100%;
   height: 100%;
   background-color: #ef5e5e;
   opacity: 15%;
 }
+/* page content */
 .content {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+  /* two rows: header, content */
   display: grid;
   grid-template-rows: 30% 70%;
 }
 header {
+  /* move header up */
   align-self: flex-start;
+  /* evenly distrbute header elements */
   display: flex;
   justify-content: space-around;
   padding-top: 15px;
@@ -43,23 +51,19 @@ header {
   color: #fff;
   font-weight: 400;
 }
+/* to be able to position child: main-content*/
 .showcase {
   position: relative;
 }
+/* two skewed rectangles */
 .gradient,
 .gradient-2 {
   width: 100%;
   height: 200px;
   opacity: 0;
 }
+/* rectangle 1 */
 .gradient {
-  /* background: linear-gradient(
-    to right,
-    #ffffff 0%,
-    #ef5e5e 44%,
-    #ff3030 100%,
-    #ffffff 100%
-  ); */
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
@@ -68,14 +72,8 @@ header {
   transform: skewY(-10deg);
   animation: goLeft 0.3s 1s forwards;
 }
+/* rectangle 2 */
 .gradient-2 {
-  /* background: linear-gradient(
-    to right,
-    #ff3030 0%,
-    #ef5e5e 44%,
-    #ffffff 100%,
-    #ffffff 100%
-  ); */
   background: linear-gradient(
     90deg,
     rgba(239, 94, 94, 1) 0%,
@@ -84,18 +82,21 @@ header {
   transform: skewY(-10deg);
   animation: goRight 0.3s 1s forwards;
 }
+/* place main content over the gradient rectangles */
 .main-content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 400px;
+  /* centering */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding-top: 30px;
 }
+/* text */
 .line-1,
 .line-2 {
   color: #fff;
@@ -103,13 +104,16 @@ header {
   background-color: rgba(58, 9, 9, 0.808);
   animation: textIn 1s;
 }
+/* first text line */
 .line-1 {
   font-size: 20px;
   padding: 2px 3px;
 }
+/* word "NEW" */
 .shade {
   color: #ef5e5e;
 }
+/* second text line */
 .line-2 {
   font-size: 30px;
   margin-top: 3px;
@@ -120,12 +124,14 @@ header {
 .txt {
   animation: textIn 1s;
 }
+/* description text */
 .txt {
   color: #fff;
   font-size: 20px;
   text-align: center;
   margin-top: 18px;
 }
+/* button */
 .btn {
   border: none;
   background-color: #fff;
@@ -137,6 +143,11 @@ header {
   animation: buttonIn 1s;
 }
 
+/* ********************* */
+/*        Animation     */
+/* ********************* */
+
+/* header animation */
 @keyframes headerIn {
   from {
     transform: translateY(-50px);
@@ -145,6 +156,8 @@ header {
     transform: translateY(0px);
   }
 }
+
+/* text animation */
 @keyframes textIn {
   from {
     opacity: 0;
@@ -154,6 +167,8 @@ header {
     transform: translateX(0px);
   }
 }
+
+/* button animation */
 @keyframes buttonIn {
   from {
     opacity: 0;
@@ -163,6 +178,8 @@ header {
     transform: translateX(0px);
   }
 }
+
+/* animation of first rectangle */
 @keyframes goLeft {
   from {
     transform: translateX(100px);
@@ -174,6 +191,8 @@ header {
     transform: skewY(-10deg);
   }
 }
+
+/* animation of second rectangle */
 @keyframes goRight {
   from {
     transform: translateX(-100px);
